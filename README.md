@@ -20,4 +20,6 @@ with this script you have a template for create react components with some defau
 - `Create components by default in ./src/components`
 - `read options from a configuration file`
 
+_version 1.0_
+
 > With 💖 by [isaacismaelx14](https://github.com/isaacismaelx14)
