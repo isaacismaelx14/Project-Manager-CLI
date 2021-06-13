@@ -13,9 +13,9 @@ with this script you have a template for create react components with some defau
 ## First steps 🦶
 
 1. `$ git clone https://github.com/isaacismaelx14/Project-Manager-CLI.git`
-2. `$ pip install -r requirements.txt` or with **pipenv**: `$ pipenv install --ignore-pipfile`
-3. `$ cd ./Project-Manager-CLI`
-4. `$ python ./src/app.py [Component Name]` default creation direction: `./src/component` for change add `-d [dir]`
+2. `$ cd ./Project-Manager-CLI`
+3. `$ pip install -r requirements.txt` or with **pipenv**: `$ pipenv install --ignore-pipfile`
+4. `$ python ./src/app.py [Component Name]` (default creation route in `./src/component` for change add `-d [dir]`)
 
 ## To do 📃:
 - `read options from a configuration file`
