@@ -62,7 +62,7 @@ def accept(message: str) -> str:
 
 
 def create_directory(dir: Path):
-    os.mkdir(dir)
+    os.makedirs(dir, exist_ok=True)
     main()
 
 
@@ -96,7 +96,7 @@ def cli() -> argparse.Namespace:
         description='A program to manage your project files'
     )
     parser.add_argument(
-        'file_name',
+        'component',
         help='The name of the files'
     )
     parser.add_argument(
@@ -113,7 +113,7 @@ def main():
     args = cli()
     clearConsole()
     try:
-        get_directory(args.destination, args.file_name)
+        get_directory(args.destination, args.component)
 
     except ErrorExp as e:
         print(e, file=stderr)
