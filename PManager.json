@@ -1,5 +1,6 @@
 {
   "dir": "src/component",
+  "lang": "react",
   "component": {
     "lang": ".js",
     "component_file_type": ".jsx",
