@@ -1,5 +1,6 @@
 # Project Manager CLI ⭐ [!["Pyhton"](https://img.shields.io/badge/python-3.9.1%20-gray.svg?longCache=true&logo=python&colorB=yellow)](https://www.python.org/downloads/release/python-391/)
-Whit this script you have an template for create react components with some default files as:
+
+with this script you have a template for create react components with some default files as:
 
 
 - Component (Component folder) [optional]
