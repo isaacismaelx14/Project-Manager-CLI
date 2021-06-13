@@ -100,7 +100,8 @@ def cli() -> argparse.Namespace:
         help='The name of the files'
     )
     parser.add_argument(
-        'destination',
+        '-d', '--destination',
+        default=Path('src', 'components'),
         type=Path,
         help='Directory where going to build files',
     )
@@ -111,6 +112,7 @@ def cli() -> argparse.Namespace:
 def main():
     args = cli()
     clearConsole()
+    print(args)
     try:
         get_directory(args.destination, args.file_name)
 
