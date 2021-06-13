@@ -112,7 +112,6 @@ def cli() -> argparse.Namespace:
 def main():
     args = cli()
     clearConsole()
-    print(args)
     try:
         get_directory(args.destination, args.file_name)
 
