@@ -3,10 +3,10 @@ import os
 import time
 import options
 import create_files as filesController
+
 from pathlib import Path
 from sys import stderr
 from colors import red, green, blue, yellow
-from colorama import Fore, Style
 from controllers import clearConsole
 from errorManager import ErrorExp
 
@@ -51,7 +51,7 @@ def create_files(dest: Path, fn: str, opt):
 
 def accept(message: str) -> str:
     response = input(
-        f'{message} {Fore.LIGHTGREEN_EX}(yes/no){Style.RESET_ALL}: ').lower()
+        f'{message} {green("(yes/no)")}: ').lower()
     if(response == 'yes' or response == 'y'):
         return "True"
     elif(response == 'no' or response == 'n'):
@@ -67,8 +67,7 @@ def create_directory(dir: Path):
 
 
 def no_exist_directory(dir: Path):
-    message = Fore.YELLOW + \
-        f'"{dir}"{Style.RESET_ALL} don\'t exist,{Fore.LIGHTBLUE_EX} do you want to create?'+Style.RESET_ALL
+    message = f"{yellow(f'{dir}')} don\'t exist, {blue('do you want to create?')}"
     resp = accept(message)
 
     if(resp == "True"):
