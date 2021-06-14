@@ -1,5 +1,5 @@
-from colors import blue, red, green
-from controllers import clearConsole
+from .colors import blue, red, green
+from .controllers import clearConsole
 
 
 def start():
@@ -15,8 +15,8 @@ def start():
     use_test = test_opt()
 
     return {
-        'ft': language['result'],
-        'ftc': file_type,
+        'lang': language['result'],
+        'component_file_type': file_type,
         'style_type': style_type['result'],
         'use_test': use_test,
         'use_folder': use_folder,

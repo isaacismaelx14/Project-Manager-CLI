@@ -1,10 +1,10 @@
 {
-  "dir": "src/component",
+  "dir": "components/",
   "lang": "react",
   "component": {
-    "lang": ".js",
-    "component_file_type": ".jsx",
-    "style_type": ".scss",
+    "lang": "js",
+    "component_file_type": "tsx",
+    "style_type": "scss",
     "use_test": true,
     "use_folder": true,
     "use_index": true
