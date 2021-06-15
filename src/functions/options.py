@@ -1,26 +1,34 @@
 from .colors import blue, red, green
 from .controllers import clearConsole
+from pathlib import Path
+
 
 
 def start():
     clearConsole()
+    _main_dir = main_dir()
+    _app_lang = 'react'
     use_folder = create_folder_opt()
     use_index = False
     if (use_folder):
         use_index = create_index_file_opt()
-
     language = language_opt()
     file_type = file_type_opt(language['value'])
     style_type = style_opt()
     use_test = test_opt()
 
+    print(green('Config file created'))
     return {
-        'lang': language['result'],
-        'component_file_type': file_type,
-        'style_type': style_type['result'],
-        'use_test': use_test,
-        'use_folder': use_folder,
-        'use_index': use_index
+        'dir':_main_dir,
+        'lang':_app_lang,
+        'component':{
+            'lang': language['result'],
+            'component_file_type': file_type,
+            'style_type': style_type['result'],
+            'use_test': use_test,
+            'use_folder': use_folder,
+            'use_index': use_index
+        }
     }
 
 
@@ -38,6 +46,16 @@ def yerOrNO(msg: str) -> str:
 
     return value
 
+
+def main_dir():
+    inp = input(green('Type the main route ') +
+                    red('(default "./src/components")' + ' : ')) or 'src/components';
+    print(f'[{inp}]')
+    return inp;
+
+def app_lang():
+    print(green('Select a component language'))
+    return input(green(''))
 
 def test_opt():
     print(green('\nWill you do tests? '))

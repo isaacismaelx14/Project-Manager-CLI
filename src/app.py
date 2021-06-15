@@ -5,7 +5,8 @@ import functions.options
 import json
 import functions.cli as cli
 import functions.create_files as filesController
-
+import functions.options as options
+import config.create as create_config
 
 from pathlib import Path
 from sys import stderr
@@ -110,6 +111,15 @@ def set_config(config):
             _CONFIG[key] = config[key]
 
 
+def _compoents_warnings(component_config):
+    if(component_config['component_file_type'] == 'jsx' and component_config['lang'] == 'ts'):
+        print(yellow(
+            'warning:'), 'Your filetype is .ts and your components .jsx (config file)')
+        press_e_to_exit_and_c_to_continue()
+    if(component_config['component_file_type'] == 'tsx' and component_config['lang'] == 'js'):
+        print(yellow('warning:'), 'Your filetype is .js and your components .tsx (config file)')
+        press_e_to_exit_and_c_to_continue()
+
 def set_component_config(config):
     keys = ['lang', 'component_file_type', 'style_type',
             'use_test', 'use_folder', 'use_index']
@@ -123,17 +133,11 @@ def set_component_config(config):
                     if component_config['lang'] == 'ts':
                         _COMPONENT_CONFIG[key] = 'tsx'
                     if('component_file_type' in component_config):
-                        if(component_config['component_file_type'] == 'jsx' and component_config['lang'] == 'ts'):
-                                print(yellow('warning:'), 'Your filetype is .ts and your components .jsx (config file)')
-                                press_e_to_exit_and_c_to_continue()
-                        if(component_config['component_file_type'] == 'tsx' and component_config['lang'] == 'js'):
-                                print(yellow('warning:'), 'Your filetype is .js and your components .tsx (config file)')
-                                press_e_to_exit_and_c_to_continue()
+                        _compoents_warnings(component_config)
                 else:
                     if component_config['component_file_type'] == 'tsx':
                         _COMPONENT_CONFIG['lang'] = 'ts'
-                            
-        
+
 def press_e_to_exit_and_c_to_continue():
     res = input(f"Press {red('[x]')} to exit and {green('[c]')} to continue: ").lower()
     if(res == 'c'):
@@ -142,7 +146,7 @@ def press_e_to_exit_and_c_to_continue():
         exit(2)
     else:
         raise ErrorExp(red(f'"{res}" is not a valid value'))
-            
+
 
 def get_config():
     config = read_cofig.start()
@@ -157,20 +161,39 @@ def get_data_config():
         'dest': Path(_CONFIG['dir'])
     }
 
+def local_cli():
+    print(f"{blue('Project Manager')} {green('CLI')}")
+    print(f"Selecte an option:")
+    print("\n")
+    print("""
+************************************************
+******     [1] Create component          *******
+******     [2] Create config file       *******
+************************************************
+        """)
+    valut = input('Select a value (default 1): ')
+
+
+def main_task(component,arg_dest):
+    get_config()
+    config = get_data_config()
+    dest = arg_dest if arg_dest else config['dest']
+    clearConsole()
+    get_directory(dest, component)
 
 def main():
     clearConsole()
     try:
-        get_config()
         args = cli.start()
-        arg_dest = args.destination
-        config = get_data_config()
-
-        dest = arg_dest if arg_dest else config['dest']
-
         component = args.component
-        clearConsole()
-        get_directory(dest, component)
+        arg_dest = args.destination
+        arg_config = args.config
+        if(component):
+            main_task(component, arg_dest)
+        elif(component == None and arg_config):
+            create_config.start(options.start())
+        else:
+            local_cli()
     except ErrorExp as e:
         clearConsole()
         print(e, file=stderr)

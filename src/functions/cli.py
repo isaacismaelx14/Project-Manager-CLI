@@ -10,6 +10,8 @@ def start() -> argparse.Namespace:
     )
     parser.add_argument(
         'component',
+        nargs='?',
+        default=None,
         help='The name of the files'
     )
     parser.add_argument(
@@ -19,9 +21,9 @@ def start() -> argparse.Namespace:
         help='Directory where going to build files',
     )
     parser.add_argument(
-        '-tc', '--temporal-config',
+        '-c', '--config',
         action='store_true',
-        help='Define if you want to use the PManager.json',
+        help='Create file PManager.json'
     )
 
     return parser.parse_args()

@@ -34,10 +34,9 @@ def check_config(config):
         if(len(final_errors) > 1):
             return 's'
         return ''
-    
+
     if(len(final_errors) > 0):
-        raise ErrorExp(f'{red(f"error{add_s()}:")} \n \t' +
-                       '\n \t'.join(final_errors))
+        raise ErrorExp(f'{red(f"error{add_s()}:")} \n \t' + '\n \t'.join(final_errors))
 
 
 def check_dir(dir):
@@ -83,15 +82,13 @@ def check_componet(comp):
         if(type(comp['component_file_type']) != str):
             errors.append(
                 'component_file_type be an object (config file)')
-        errors.append(check_type(component_file_types,
-                                 comp['component_file_type'], 'component_file_type'))
+        errors.append(check_type(component_file_types, comp['component_file_type'], 'component_file_type'))
     # Style type
     if('style_type' in comp):
         if(type(comp['style_type']) != str):
             errors.append(
                 'style_type must be an none, css, scss, or sass (config file)')
-        errors.append(check_type(style_type_types,
-                                 comp['style_type'], 'style_type'))
+        errors.append(check_type(style_type_types, comp['style_type'], 'style_type'))
     # use test
     if('use_test' in comp and type(comp['use_test']) != bool):
         errors.append('use_test must be an true or false (config file)')

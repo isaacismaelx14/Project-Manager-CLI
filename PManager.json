@@ -1,12 +1,12 @@
 {
-  "dir": "components/",
+  "dir": "components",
   "lang": "react",
   "component": {
-    "lang": "js",
+    "lang": "ts",
     "component_file_type": "tsx",
-    "style_type": "scss",
-    "use_test": true,
-    "use_folder": true,
-    "use_index": true
+    "style_type": "none",
+    "use_test": false,
+    "use_folder": false,
+    "use_index": false
   }
 }
