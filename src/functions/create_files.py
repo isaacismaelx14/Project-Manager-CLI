@@ -1,7 +1,7 @@
 import os
-from colors import blue, green, red
+from .colors import blue, green, red
 from pathlib import Path
-from errorManager import ErrorExp
+from .errorManager import ErrorExp
 
 
 def check_exist(path):

@@ -10,16 +10,59 @@ with this script you have a template for create react components with some defau
   - Component.test.js [optional]
 
 
-## First steps 🦶
+## First steps 🦶:
 
 1. `$ git clone https://github.com/isaacismaelx14/Project-Manager-CLI.git`
 2. `$ cd ./Project-Manager-CLI`
 3. `$ pip install -r requirements.txt` or with **pipenv**: `$ pipenv install --ignore-pipfile`
-4. `$ python ./src/app.py [Component Name]` (default creation route in `./src/component` for change add `-d [dir]`)
+4. `$ python ./src/app.py `
 
-## To do 📃:
-- `read options from a configuration file`
+## Commands 👩‍💻:
+`$ python ./src/app.py  [Component Name]`: create a component directly
 
-_version 1.0_
+`-c`, `--config`: Create a configuration file.
+
+`-d`, `--destination`: Change the default destination.
+
+## Configuration File ⚙:
+> You can use the comand $ python `./src/app.py -c `to create the configuration file.
+
+- "dir": `Components path`
+
+- "lang": _This will be useful in later versions._
+
+- "component": `Object`
+
+  - "lang": `js` | `ts`
+  - "component_file_type": `jsx` | `js` | `tsx`
+  - "style_type": `css` | `scss` | `sass` | `none`
+  - "use_test": `true` | `false`
+  - "use_folder": `true` | `false`
+  - "use_index": `true` | `false`
+
+
+**Example:**
+```
+{
+  "dir": "src/components",
+  "lang": "react",
+  "component": {
+    "lang": "js",
+    "component_file_type": "jsx",
+    "style_type": "css",
+    "use_test": true,
+    "use_folder": true,
+    "use_index": true
+  }
+}
+```
+
+## Version 1.1 updates:
+- Config file for projects
+- More simple commnad
+- New CLI
+- use the destination of the config file or set on the command with `-d`
+
+_version 1.1_
 
 > With 💖 by [isaacismaelx14](https://github.com/isaacismaelx14)
