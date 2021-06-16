@@ -25,7 +25,7 @@ with this script you have a template for create react components with some defau
 `-d`, `--destination`: Change the default destination.
 
 ## Configuration File ⚙:
-> You can use the comand $ python `./src/app.py -c `to create the configuration file.
+> You can use the comand `$ python ./src/app.py -c `to create the configuration file.
 
 - "dir": `Components path`
 
