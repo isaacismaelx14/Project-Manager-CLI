@@ -61,7 +61,7 @@ with this script you have a template for create react components with some defau
 - Config file for projects
 - More simple commnad
 - New CLI
-- use the destination of the config file or set on the command with `-d`
+- use the destination of the config file or set on the command with `-d` or `--destinantion`
 
 _version 1.1_
 
