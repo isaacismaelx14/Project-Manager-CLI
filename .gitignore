@@ -1,3 +1,6 @@
 dist
 build
 *.egg-info
+requirements.txt
+*.lock
+Pipfile
