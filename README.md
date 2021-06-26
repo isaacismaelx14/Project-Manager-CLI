@@ -32,12 +32,7 @@ git clone https://github.com/isaacismaelx14/Project-Manager-CLI.git
 cd ./Project-Manager-CLI
 ```
 
-2. Install packages
-```bash
-pip install -r requirements.txt
-```
-
-3. Install `create_component` module
+2. Install `create_component` module
 
 ```bash
 python setup.py install
@@ -109,6 +104,6 @@ create_component <component name> -d <path>
 # To do 📃:
 - [ ] create support for `angular` and `vue.js` components.
 
-_version 1.1_
+_version 1.2_
 
 > With 💖 by [isaacismaelx14](https://github.com/isaacismaelx14)
