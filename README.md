@@ -26,20 +26,47 @@ Component
 
 # First steps 🦶:
 
-1. `$ git clone https://github.com/isaacismaelx14/Project-Manager-CLI.git`
-2. `$ cd ./Project-Manager-CLI`
-3. `$ pip install -r requirements.txt` or with **pipenv**: `$ pipenv install --ignore-pipfile`
-4. `$ python ./src/app.py `
+1. Clone the repository
+```bash
+git clone https://github.com/isaacismaelx14/Project-Manager-CLI.git
+cd ./Project-Manager-CLI
+```
 
-# Commands 👩‍💻:
-`$ python ./src/app.py  [Component Name]`: create a component directly
+2. Install packages
+```bash
+pip install -r requirements.txt
+```
+
+3. Install `create_component` module
+
+```bash
+python setup.py install
+```
+
+# How to use 👩‍💻:
+
+Create a component with `default` configuration
+
+```bash
+create_component <compnent name>
+```
 
 `-c`, `--config`: Create a configuration file.
 
+Example:
+```bash
+create_component -c
+```
+
 `-d`, `--destination`: Change the default destination.
 
+Example:
+```bash
+create_component <component name> -d <path>
+```
+
 # Configuration File ⚙:
-> You can use the comand `$ python ./src/app.py -c` to create the configuration file.
+> You can use the comand `create_component -c` to create the configuration file.
 
 ## Example: 
 `PManager.json`
@@ -76,11 +103,8 @@ Component
 | use_test | Boolean |`true` \| `false`|define if you want to create and `test file` for `unit test`|
 | use_folder | Boolean |`true` \| `false`|define if you want that your `component's files` are inside and folder|
 | use_index | Boolean |`true` \| `false`|define if you want that your `component's folder` have an `index` file to link to your `component` (useful is you are using a lot of components)|
-# Version 1.1 updates:
-- Config file for projects
-- More simple commnad
-- New CLI
-- use the destination of the config file or set on the command with `-d` or `--destinantion`
+# Version 1.2 updates:
+- Now you can install the CLI in your system
 
 # To do 📃:
 - [ ] create support for `angular` and `vue.js` components.

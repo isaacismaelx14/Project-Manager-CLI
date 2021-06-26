@@ -1,10 +1,8 @@
 # start
-import sys
 import json
 from pathlib import Path
 from sys import stderr
-sys.path[0] = str(Path(sys.path[0]).parent)
-from functions.colors import red
+from .colors import red
 
 _FILE_NAME = 'PManager.json'
 _PATH = Path(_FILE_NAME)
