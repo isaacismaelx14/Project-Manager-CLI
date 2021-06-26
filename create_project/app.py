@@ -1,19 +1,19 @@
 
 import os
 import time
-import functions.options
 import json
-import functions.cli as cli
-import functions.create_files as filesController
-import functions.options as options
-import config.create as create_config
-
 from pathlib import Path
 from sys import stderr
-from functions.colors import red, green, blue, yellow
-from functions.controllers import clearConsole
-from functions.errorManager import ErrorExp
-from config import read as read_cofig
+
+from . import cli as cli
+from . import create_files as filesController
+from . import options as options
+from . import create as create_config
+from . import read as read_cofig
+
+from .colors import red, green, blue, yellow
+from .controllers import clearConsole
+from .errorManager import ErrorExp
 
 
 _COMPONENT_CONFIG = {
