@@ -57,7 +57,7 @@ create_component -c
 
 Example:
 ```bash
-create_component <component name> -d ./src/temp
+create_component <component name> -d <path>
 ```
 
 # Configuration File ⚙:
