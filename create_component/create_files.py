@@ -2,6 +2,7 @@ import os
 from .colors import blue, green, red
 from pathlib import Path
 from .errorManager import ErrorExp
+import time
 
 
 def check_exist(path):
@@ -10,8 +11,13 @@ def check_exist(path):
         raise ErrorExp(red(f'File {path.name} already exists'))
 
 
-def create_test_js(fileAbsoulte, fn, ft, using_index):
-    file_name = f'{fileAbsoulte}.test.{ft}'
+def create_test_js(fileAbsoulte, fn, ft, ftc ,using_index):
+    ext = ''
+    if (ft == 'js'):
+        ext = ft
+    else:
+        ext = ftc
+    file_name = f'{fileAbsoulte}.test.{ext}'
     check_exist(file_name)
     file = open(file_name, "w")
     file.write('import React from "react";\n')
@@ -23,8 +29,13 @@ def create_test_js(fileAbsoulte, fn, ft, using_index):
     else:
         file.write(f'"./{fn}"')
     file.write(';'+os.linesep)
-    file.write(f'describe("<{fn} />", () => '+'{\n')
-    file.write('  let component;\n')
+    file.write(f'describe("<{fn} />", () => ' + '{\n')
+
+    if (ft == 'js'):
+        file.write('  let component;\n')
+    else:
+        file.write('  let component: any;\n')
+        
     file.write('  beforeEach(() => {\n')
     file.write(f'    component = render(<{fn} />);\n')
     file.write('  });'+os.linesep)
@@ -32,7 +43,7 @@ def create_test_js(fileAbsoulte, fn, ft, using_index):
     file.write(f'    component.getByText("{fn}");\n')
     file.write('  });\n')
     file.write('});')
-    print(f'{blue(f"{fn}.test.{ft}")} {green("created")}')
+    print(f'{blue(f"{fn}.test.{ext}")} {green("created")}')
 
 
 def create_style(filePath, fn, styleType):

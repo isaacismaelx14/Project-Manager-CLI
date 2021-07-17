@@ -25,5 +25,20 @@ def start() -> argparse.Namespace:
         action='store_true',
         help='Create file PManager.json'
     )
+    parser.add_argument(
+        '--no-style',
+        action='store_true',
+        help='Ignore the style file'
+    )
+    parser.add_argument(
+        '--no-test',
+        action='store_true',
+        help='Ignore the test file'
+    )
+    parser.add_argument(
+        '--no-index',
+        action='store_true',
+        help='Ignore the index file'
+    )
 
     return parser.parse_args()

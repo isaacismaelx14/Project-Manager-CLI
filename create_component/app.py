@@ -68,7 +68,7 @@ def create_files(dest: Path, fn: str, opt):
     if(select_type != 'none'):
         filesController.create_style(filePath, fn, select_type)
     if use_test:
-        filesController.create_test_js(fileAbsoulte, fn, ft, use_index)
+        filesController.create_test_js(fileAbsoulte, fn, ft, ftc,use_index)
 
 #   Print a message with option (Yes or No) and return the answer in str
 #   if you press a valid as Y, Yes, N or No, this functin return "True"
