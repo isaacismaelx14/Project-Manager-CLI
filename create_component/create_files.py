@@ -21,7 +21,7 @@ def create_test_js(fileAbsoulte, fn, ft, ftc ,using_index):
     check_exist(file_name)
     file = open(file_name, "w")
     file.write('import React from "react";\n')
-    file.write('import ReactDOM from "react-dom";;\n')
+    file.write('import ReactDOM from "react-dom";\n')
     file.write('import "@testing-library/jest-dom";\n')
     # file.write('import { render } from "@testing-library/react";\n')
     file.write(f'import {fn} from ')
