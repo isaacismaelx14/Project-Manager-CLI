@@ -21,8 +21,9 @@ def create_test_js(fileAbsoulte, fn, ft, ftc ,using_index):
     check_exist(file_name)
     file = open(file_name, "w")
     file.write('import React from "react";\n')
+    file.write('import ReactDOM from "react-dom";;\n')
     file.write('import "@testing-library/jest-dom";\n')
-    file.write('import { render } from "@testing-library/react";\n')
+    # file.write('import { render } from "@testing-library/react";\n')
     file.write(f'import {fn} from ')
     if(using_index):
         file.write(f'"./"')
@@ -31,16 +32,18 @@ def create_test_js(fileAbsoulte, fn, ft, ftc ,using_index):
     file.write(';'+os.linesep)
     file.write(f'describe("<{fn} />", () => ' + '{\n')
 
-    if (ft == 'js'):
-        file.write('  let component;\n')
-    else:
-        file.write('  let component: any;\n')
+    # if (ft == 'js'):
+    #     file.write('  let component;\n')
+    # else:
+    #     file.write('  let component: any;\n')
         
-    file.write('  beforeEach(() => {\n')
-    file.write(f'    component = render(<{fn} />);\n')
-    file.write('  });'+os.linesep)
+    # file.write('  beforeEach(() => {\n')
+    # file.write(f'    component = render(<{fn} />);\n')
+    # file.write('  });'+os.linesep)
     file.write('  test("should render", () => {\n')
-    file.write(f'    component.getByText("{fn}");\n')
+    # file.write(f'    component.getByText("{fn}");\n')
+    file.write(f'    const div = document.createElement("div");\n')
+    file.write(f'    ReactDOM.render(<{fn} />, div);\n')
     file.write('  });\n')
     file.write('});')
     print(f'{blue(f"{fn}.test.{ext}")} {green("created")}')

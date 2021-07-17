@@ -218,11 +218,18 @@ def local_cli()->str:
     return input(f'Select a value {red("(default 1)")}: ').lower()
 
 
-def main_task(component, arg_dest=None):
+def main_task(component, args):
     global _DESTINATION
     global _FILE_NAME
     get_config()
     config = get_data_config()
+    arg_dest = args.destination
+    arg_config = args.config
+
+    arg_no_style = args.no_style
+    arg_no_index = args.no_index
+    arg_no_test = args.no_test
+
     dest = arg_dest if arg_dest else config['dest']
     clearConsole()
     _DESTINATION = dest
@@ -235,14 +242,19 @@ def main():
     try:
         args = cli.start()
         component = args.component
-        arg_dest = args.destination
         arg_config = args.config
+        # arg_dest = args.destination
+        # arg_no_style = args.no_style
+        # arg_no_index = args.no_index
+        # arg_no_test = args.no_test
+
         if(component):
-            main_task(component, arg_dest)
+            main_task(component, args)
         elif(component == None and arg_config):
             create_config.start(options.start())
-        else:
-            get_selection_cli(local_cli())
+        # else:
+        #     get_selection_cli(local_cli())
+
     except ErrorExp as e:
         clearConsole()
         print(e, file=stderr)
